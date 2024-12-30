@@ -1,3 +1,4 @@
 abstract class Assets {
-  static const String logo = 'assets/images/image.png';
+  static const splashImage = 'assets/images/image.png';
+  static const splashLogo = 'assets/images/logo.png';
 }
