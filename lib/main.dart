@@ -1,3 +1,5 @@
+import 'package:day_task/consts.dart';
+import 'package:day_task/features/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +11,10 @@ class DayTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
+      home: const SplashView(),
+    );
   }
 }
