@@ -1,3 +1,4 @@
+import 'package:day_task/consts.dart';
 import 'package:day_task/core/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class DaysListViewItem extends StatelessWidget {
       height: 90,
       width: 70,
       decoration: BoxDecoration(
-        color: const Color(0xff263238),
+        color:kThirdColor,
         borderRadius: BorderRadius.circular(4),
         boxShadow: const [],
       ),

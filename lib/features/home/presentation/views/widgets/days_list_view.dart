@@ -10,7 +10,7 @@ class DaysListView extends StatelessWidget {
       height: 90,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: 7,
+        itemCount: 35,
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         itemBuilder: (context, index) {
           return const DaysListViewItem();
