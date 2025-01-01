@@ -6,8 +6,8 @@ abstract class Styles {
       TextStyle(fontSize: 18, fontWeight: FontWeight.w600);
   static const textStyle22 = TextStyle(
       fontSize: 22, fontWeight: FontWeight.w600, fontFamily: kPilatExtended);
-  static const textStyle20 = TextStyle(
-      fontSize: 20, fontWeight: FontWeight.w600, fontFamily: kPilatExtended);
+  static const textStyle20 =
+      TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w500,
