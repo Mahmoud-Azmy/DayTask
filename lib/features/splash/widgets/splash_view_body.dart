@@ -1,7 +1,9 @@
+import 'package:day_task/core/app_router.dart';
 import 'package:day_task/core/assets.dart';
 import 'package:day_task/features/splash/widgets/splash_view_logo.dart';
 import 'package:day_task/features/splash/widgets/splash_view_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,12 +18,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<Offset> _animation;
   @override
   void initState() {
-    initSlidingAnimation();
-    _controller.forward();
     super.initState();
+    initSlidingAnimation();
+    navigationToHomeView();
   }
-
- 
 
   @override
   void dispose() {
@@ -61,9 +61,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
       ),
     );
-
   }
-   void initSlidingAnimation() {
+
+  void initSlidingAnimation() {
     _controller = AnimationController(
       duration: const Duration(seconds: 1),
       vsync: this,
@@ -71,9 +71,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
     _animation = Tween<Offset>(
       begin: const Offset(0, 1),
       end: const Offset(0, 0),
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    );
+    _controller.forward();
+  }
+
+  void navigationToHomeView() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        if (mounted) {
+          GoRouter.of(context).push(AppRouter.homeView);
+        }
+      },
+    );
   }
 }
