@@ -8,7 +8,7 @@ class TasksListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 80,
       decoration: BoxDecoration(
         color: kThirdColor,
         borderRadius: BorderRadius.circular(6),
@@ -27,12 +27,12 @@ class TasksListViewItem extends StatelessWidget {
               children: [
                 const Text('Wireframe',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.w400,
                     )),
                 Text('18:30',
                     style: Styles.textStyle12.copyWith(
-                        fontWeight: FontWeight.w300, color: Colors.grey)),
+                        fontWeight: FontWeight.w500, color: Colors.grey)),
               ],
             ),
           ),
