@@ -1,3 +1,4 @@
+import 'package:day_task/features/home/presentation/views/widgets/create_new_task_custom_appbar.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewTaskView extends StatelessWidget {
@@ -6,9 +7,16 @@ class CreateNewTaskView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text('Create New Task View'),
+        body: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 60,
+          ),
+          CreateNewTaskCustomAppBar()
+        ],
       ),
-    );
+    ));
   }
 }
