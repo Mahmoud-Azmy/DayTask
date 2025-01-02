@@ -1,5 +1,6 @@
 import 'package:day_task/features/home/presentation/views/create_new_task_view.dart';
 import 'package:day_task/features/home/presentation/views/home_view.dart';
+import 'package:day_task/features/splash/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -9,7 +10,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: homeView,

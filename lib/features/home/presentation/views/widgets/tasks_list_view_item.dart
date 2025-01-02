@@ -20,22 +20,31 @@ class TasksListViewItem extends StatelessWidget {
             color: kSeconedColor,
           ),
           const SizedBox(width: 20),
-          Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('Wireframe',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                    )),
-                Text('18:30',
-                    style: Styles.textStyle12.copyWith(
-                        fontWeight: FontWeight.w500, color: Colors.grey)),
-              ],
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Wireframe',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                  )),
+              Text('18:30',
+                  style: Styles.textStyle12.copyWith(
+                      fontWeight: FontWeight.w500, color: Colors.grey)),
+            ],
+          ),
+          const Spacer(),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.delete,
+              size: 32,
             ),
           ),
+          const SizedBox(
+            width: 10,
+          )
         ],
       ),
     );
