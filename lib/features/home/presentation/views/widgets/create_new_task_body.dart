@@ -27,9 +27,7 @@ class CreateNewTaskBody extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          CreateNewTaskTitle(
-            hintText: 'Enter task title',
-          ),
+          CreateNewTaskTitle(),
         ],
       ),
     );
