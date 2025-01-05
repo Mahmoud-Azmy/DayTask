@@ -3,6 +3,7 @@ import 'package:day_task/features/home/presentation/views/widgets/create_new_tas
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_details.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_title.dart';
 import 'package:day_task/features/home/presentation/views/widgets/custom_button.dart';
+import 'package:day_task/features/home/presentation/views/widgets/set_date_and_time.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewTaskBody extends StatelessWidget {
@@ -47,6 +48,17 @@ class CreateNewTaskBody extends StatelessWidget {
                         height: 10,
                       ),
                       CreateNewTaskDetails(),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        'Date and Time',
+                        style: Styles.textStyle20,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      SetDateAndTime(),
                       SizedBox(
                         height: 30,
                       ),
