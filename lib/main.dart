@@ -7,6 +7,7 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
+  await Hive.openBox(kTaskBox);
   runApp(DevicePreview(
     enabled: false,
     builder: (context) => const DayTask(),
