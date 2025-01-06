@@ -7,8 +7,8 @@ class SetDateAndTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get screen width to calculate responsive sizes
-    final screenWidth = MediaQuery.of(context).size.width;
-    final isSmallScreen = screenWidth < 360;
+    // final screenWidth = MediaQuery.of(context).size.width;
+    // final isSmallScreen = screenWidth < 360;
 
     // Use LayoutBuilder to make the widget responsive to its parent constraints
     return LayoutBuilder(

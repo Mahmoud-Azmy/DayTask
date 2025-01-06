@@ -4,7 +4,12 @@ class TaskModel {
   final String date;
   final String time;
 
-  TaskModel(this.title, this.description, this.date, this.time);
+  TaskModel(
+      {required this.title,
+      required this.description,
+      required this.date,
+      required this.time});
+
   // final DateTime date;
   // final TimeOfDay time;
 }
