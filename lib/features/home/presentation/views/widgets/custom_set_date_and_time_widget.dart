@@ -23,15 +23,20 @@ class CustomSetDateAndTimeWidget extends StatelessWidget {
 
     return Container(
       height: containerHeight,
-      decoration: const BoxDecoration(color: kThirdColor),
+      decoration: BoxDecoration(
+          color: kThirdColor, borderRadius: BorderRadius.circular(4)),
       child: Row(
         children: [
           Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(4), bottomLeft: Radius.circular(4)),
+              color: kSeconedColor,
+            ),
             padding: EdgeInsets.symmetric(
               horizontal: screenWidth < 360 ? 8 : 15,
             ),
             height: containerHeight,
-            color: kSeconedColor,
             child: Icon(
               iconData,
               color: Colors.black,

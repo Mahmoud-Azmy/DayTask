@@ -16,24 +16,6 @@ class SetDateAndTime extends StatelessWidget {
         // If the width is too small, stack the widgets vertically
         return OrientationBuilder(
           builder: (context, orientation) {
-            if (isSmallScreen || orientation == Orientation.portrait) {
-              return Column(
-                children: [
-                  CustomSetDateAndTimeWidget(
-                    iconData: Icons.calendar_today,
-                    date: '15/11/2022',
-                    maxWidth: constraints.maxWidth,
-                  ),
-                  const SizedBox(height: 10),
-                  CustomSetDateAndTimeWidget(
-                    iconData: Icons.access_time,
-                    date: '10:30 AM',
-                    maxWidth: constraints.maxWidth,
-                  ),
-                ],
-              );
-            }
-
             // For larger screens or landscape, keep the original row layout
             return Row(
               children: [

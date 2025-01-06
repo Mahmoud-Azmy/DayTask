@@ -8,6 +8,6 @@ class CreateNewTaskTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomTextField(hintText: 'Enter task titl');
+    return const CustomTextField(hintText: 'Enter task title');
   }
 }
