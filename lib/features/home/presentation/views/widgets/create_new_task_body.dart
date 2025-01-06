@@ -6,70 +6,98 @@ import 'package:day_task/features/home/presentation/views/widgets/custom_button.
 import 'package:day_task/features/home/presentation/views/widgets/set_date_and_time.dart';
 import 'package:flutter/material.dart';
 
-class CreateNewTaskBody extends StatelessWidget {
+class CreateNewTaskBody extends StatefulWidget {
   const CreateNewTaskBody({super.key});
 
   @override
+  State<CreateNewTaskBody> createState() => _CreateNewTaskBodyState();
+}
+
+class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? taskTitle, taskDetails;
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.0),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 70,
-          ),
-          CreateNewTaskCustomAppBar(),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        'Task Title',
-                        style: Styles.textStyle20,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      CreateNewTaskTitle(),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        'Task details',
-                        style: Styles.textStyle20,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      CreateNewTaskDetails(),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        'Date and Time',
-                        style: Styles.textStyle20,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      SetDateAndTime(),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      CustomButton()
-                    ],
-                  ),
-                ),
-              ],
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 70,
             ),
-          ),
-        ],
+            const CreateNewTaskCustomAppBar(),
+            Expanded(
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Text(
+                          'Task Title',
+                          style: Styles.textStyle20,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CreateNewTaskTitle(
+                          onSaved: (value) {
+                            taskTitle = value;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Text(
+                          'Task details',
+                          style: Styles.textStyle20,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        CreateNewTaskDetails(
+                          onSaved: (value) {
+                            taskDetails = value;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Text(
+                          'Date and Time',
+                          style: Styles.textStyle20,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const SetDateAndTime(),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        CustomButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState!.save();
+                            } else {
+                              autovalidateMode = AutovalidateMode.always;
+                              setState(() {});
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

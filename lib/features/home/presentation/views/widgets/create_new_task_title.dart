@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 class CreateNewTaskTitle extends StatelessWidget {
   const CreateNewTaskTitle({
     super.key,
+    this.onSaved,
   });
-
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return const CustomTextField(hintText: 'Enter task title');
+    return CustomTextField(
+      hintText: 'Enter task title',
+      onSaved: onSaved,
+    );
   }
 }
