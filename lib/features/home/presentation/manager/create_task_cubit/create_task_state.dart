@@ -5,7 +5,7 @@ sealed class CreateTaskState {}
 
 final class CreateTaskInitial extends CreateTaskState {}
 
-final class CreateTaskLpading extends CreateTaskState {}
+final class CreateTaskLoading extends CreateTaskState {}
 
 final class CreateTaskSuccess extends CreateTaskState {}
 
