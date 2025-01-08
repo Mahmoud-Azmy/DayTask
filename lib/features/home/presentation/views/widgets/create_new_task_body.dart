@@ -1,10 +1,13 @@
+import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
+import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_custom_appbar.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_details.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_title.dart';
 import 'package:day_task/features/home/presentation/views/widgets/custom_button.dart';
 import 'package:day_task/features/home/presentation/views/widgets/set_date_and_time.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CreateNewTaskBody extends StatefulWidget {
   const CreateNewTaskBody({super.key});
@@ -84,6 +87,12 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
+                              BlocProvider.of<CreateTaskCubit>(context)
+                                  .createNewTask(TaskModel(
+                                      title: taskTitle!,
+                                      description: taskDetails!,
+                                      date: DateTime.now().toString(),
+                                      time: ''));
                             } else {
                               autovalidateMode = AutovalidateMode.always;
                               setState(() {});

@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 class HomeRepoImp implements HomeRepo {
   @override
   void createNewTask({required TaskModel taskModel}) async {
-    var taskBox = await Hive.openBox<TaskModel>(kTaskBox);
+    var taskBox = Hive.box<TaskModel>(kTaskBox);
     taskBox.add(taskModel);
   }
 }
