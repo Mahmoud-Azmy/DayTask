@@ -14,11 +14,11 @@ class TasksListView extends StatelessWidget {
           return SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                if (index.isOdd) {
-                  return const SizedBox(height: 10);
-                }
-                return TasksListViewItem(
-                  taskModel: state.tasks[index],
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: TasksListViewItem(
+                    taskModel: state.tasks[index],
+                  ),
                 );
               },
               childCount: state.tasks.length, // For 10 items + 9 separators
