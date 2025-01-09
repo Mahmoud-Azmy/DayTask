@@ -1,9 +1,11 @@
 import 'package:day_task/consts.dart';
+import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
 import 'package:flutter/material.dart';
 
 class TasksListViewItem extends StatelessWidget {
-  const TasksListViewItem({super.key});
+  const TasksListViewItem({super.key, required this.taskModel});
+  final TaskModel taskModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +26,8 @@ class TasksListViewItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Wireframe',
-                  style: TextStyle(
+              Text(taskModel.title,
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
                   )),

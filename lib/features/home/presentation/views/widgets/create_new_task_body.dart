@@ -1,6 +1,7 @@
 import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
 import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
+import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_custom_appbar.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_details.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_title.dart';
@@ -93,6 +94,8 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                                       description: taskDetails!,
                                       date: DateTime.now().toString(),
                                       time: ''));
+                              BlocProvider.of<GetTasksCubit>(context)
+                                  .getTasks();
                             } else {
                               autovalidateMode = AutovalidateMode.always;
                               setState(() {});
