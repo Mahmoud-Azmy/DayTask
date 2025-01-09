@@ -4,6 +4,7 @@ import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/my_bloc_observer.dart';
 import 'package:day_task/features/home/data/repos/home_repo_imp.dart';
 import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
+import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +34,11 @@ class DayTask extends StatelessWidget {
           create: (context) => CreateTaskCubit(
             HomeRepoImp(),
           ),
+        ),
+        BlocProvider(
+          create: (context) => GetTasksCubit(
+            HomeRepoImp(),
+          )..getTasks(),
         ),
       ],
       child: MaterialApp.router(
