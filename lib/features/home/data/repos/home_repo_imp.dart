@@ -9,4 +9,14 @@ class HomeRepoImp implements HomeRepo {
     var taskBox = Hive.box<TaskModel>(kTaskBox);
     taskBox.add(taskModel);
   }
+  
+  @override
+List<TaskModel> getTasks()  {
+    final taskBox = Hive.box<TaskModel>(kTaskBox);
+    final tasks = taskBox.values.toList();
+    return tasks;
+}
+  
+
+
 }

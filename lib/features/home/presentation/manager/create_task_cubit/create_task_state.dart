@@ -14,17 +14,3 @@ final class CreateTaskFailure extends CreateTaskState {
 
   CreateTaskFailure(this.errMessage);
 }
-
-final class GetTaskLoading extends CreateTaskState {}
-
-final class GetTaskSuccess extends CreateTaskState {
-  final List<TaskModel> tasks;
-
-  GetTaskSuccess(this.tasks);
-}
-
-final class GetTaskFailure extends CreateTaskState {
-  final String errMessage;
-
-  GetTaskFailure(this.errMessage);
-}
