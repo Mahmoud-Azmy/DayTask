@@ -1,7 +1,9 @@
 import 'package:day_task/consts.dart';
 import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
+import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TasksListViewItem extends StatelessWidget {
   const TasksListViewItem({super.key, required this.taskModel});
@@ -38,7 +40,10 @@ class TasksListViewItem extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              taskModel.delete();
+              BlocProvider.of<GetTasksCubit>(context).getTasks();
+            },
             icon: const Icon(
               Icons.delete,
               size: 32,
