@@ -17,4 +17,14 @@ class GetTasksCubit extends Cubit<GetTasksState> {
       emit(GetTaskFailure(e.toString()));
     }
   }
+
+  int selectedDay = -1;
+  void setSelectedDay(int index) {
+    if (selectedDay != index) {
+      selectedDay = index;
+      emit(GetSelectedDay());
+      // Optionally filter tasks for the selected day
+      // filterTasksForSelectedDay();
+    }
+  }
 }

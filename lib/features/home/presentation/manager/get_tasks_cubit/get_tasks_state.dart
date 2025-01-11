@@ -18,3 +18,5 @@ final class GetTaskFailure extends GetTasksState {
 
   GetTaskFailure(this.errMessage);
 }
+
+final class GetSelectedDay extends GetTasksState {}
