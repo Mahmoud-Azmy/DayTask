@@ -25,12 +25,16 @@ class TasksListView extends StatelessWidget {
             ),
           );
         } else if (state is GetTaskFailure) {
-          return const Center(
-            child: Text('Failed to fetch tasks'),
+          return const SliverToBoxAdapter(
+            child: Center(
+              child: Text('Failed to fetch tasks'),
+            ),
           );
         }
-        return const Center(
-          child: CircularProgressIndicator(),
+        return const SliverToBoxAdapter(
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         );
       },
     );
