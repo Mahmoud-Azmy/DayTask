@@ -1,6 +1,5 @@
 import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
-import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
 import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_custom_appbar.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_details.dart';
@@ -11,7 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditTaskViewBody extends StatefulWidget {
-  const EditTaskViewBody({super.key});
+  const EditTaskViewBody({super.key, required this.taskModel});
+  final TaskModel taskModel;
 
   @override
   State<EditTaskViewBody> createState() => _EditTaskViewBodyState();
@@ -25,6 +25,8 @@ class _EditTaskViewBodyState extends State<EditTaskViewBody> {
   var subTitleController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    titleController.text = widget.taskModel.title;
+    subTitleController.text = widget.taskModel.description;
     return Form(
       key: formKey,
       child: Padding(
@@ -93,14 +95,13 @@ class _EditTaskViewBodyState extends State<EditTaskViewBody> {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
-                              BlocProvider.of<CreateTaskCubit>(context)
-                                  .createNewTask(TaskModel(
-                                      title: taskTitle!,
-                                      description: taskDetails!,
-                                      date: DateTime.now().toString(),
-                                      time: ''));
+                              widget.taskModel.title =
+                                  taskTitle ?? widget.taskModel.title;
+                              widget.taskModel.description =
+                                  taskDetails ?? widget.taskModel.description;
                               BlocProvider.of<GetTasksCubit>(context)
                                   .getTasks();
+                              Navigator.pop(context);
                             } else {
                               autovalidateMode = AutovalidateMode.always;
                               setState(() {});

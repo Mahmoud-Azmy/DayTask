@@ -85,6 +85,7 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                           height: 30,
                         ),
                         CustomButton(
+                          text: 'Create Task',
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();

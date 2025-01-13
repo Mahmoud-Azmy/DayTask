@@ -5,8 +5,10 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.onPressed,
+    required this.text,
   });
   final void Function()? onPressed;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -17,10 +19,10 @@ class CustomButton extends StatelessWidget {
           height: 70,
           decoration: BoxDecoration(
               color: kSeconedColor, borderRadius: BorderRadius.circular(4)),
-          child: const Center(
+          child: Center(
             child: Text(
-              'Create Task',
-              style: TextStyle(color: Colors.black, fontSize: 22),
+              text,
+              style: const TextStyle(color: Colors.black, fontSize: 22),
             ),
           )),
     );

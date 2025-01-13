@@ -2,8 +2,9 @@ import 'package:day_task/features/home/presentation/views/widgets/custom_text_fi
 import 'package:flutter/material.dart';
 
 class CreateNewTaskDetails extends StatelessWidget {
-  const CreateNewTaskDetails({super.key, this.onSaved});
+  const CreateNewTaskDetails({super.key, this.onSaved, this.controller});
   final void Function(String?)? onSaved;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +12,7 @@ class CreateNewTaskDetails extends StatelessWidget {
       hintText: 'Enter task details',
       maxLines: 5,
       onSaved: onSaved,
+      controller: controller,
     );
   }
 }
