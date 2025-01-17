@@ -21,7 +21,7 @@ class CreateTaskCubit extends Cubit<CreateTaskState> {
 
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
-  String selectedDay = '';
+  int selectedDay = 0;
 
   // Function to handle date picker
   Future<void> selectDate(BuildContext context) async {
@@ -35,7 +35,7 @@ class CreateTaskCubit extends Cubit<CreateTaskState> {
 
     if (picked != null && picked != selectedDate) {
       selectedDate = picked;
-      selectedDay = selectedDate.day.toString();
+      selectedDay = selectedDate.day;
       emit(CreateTaskDateSuccess());
     }
   }

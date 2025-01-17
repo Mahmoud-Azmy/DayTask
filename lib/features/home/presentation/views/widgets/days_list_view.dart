@@ -29,6 +29,8 @@ class DaysListView extends StatelessWidget {
                 dayName: dayData[1],
                 onTap: () {
                   BlocProvider.of<GetTasksCubit>(context).setSelectedDay(index);
+                  BlocProvider.of<GetTasksCubit>(context)
+                      .changeDaysListIndex(index + 1);
                   BlocProvider.of<GetTasksCubit>(context).getTasks();
                 },
               );

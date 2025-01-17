@@ -5,6 +5,8 @@ sealed class GetTasksState {}
 
 final class GetTasksInitial extends GetTasksState {}
 
+final class ChangeDaysListIndex extends GetTasksState {}
+
 final class GetTaskLoading extends GetTasksState {}
 
 final class GetTaskSuccess extends GetTasksState {

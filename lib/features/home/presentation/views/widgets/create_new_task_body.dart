@@ -94,10 +94,8 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                                 TaskModel(
                                   title: taskTitle!,
                                   description: taskDetails!,
-                                  date:
-                                      BlocProvider.of<CreateTaskCubit>(context)
-                                          .selectedDay
-                                          .toString(),
+                                  day: BlocProvider.of<CreateTaskCubit>(context)
+                                      .selectedDay,
                                   time:
                                       BlocProvider.of<CreateTaskCubit>(context)
                                           .selectedTime

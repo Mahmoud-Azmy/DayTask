@@ -27,4 +27,9 @@ class GetTasksCubit extends Cubit<GetTasksState> {
       // filterTasksForSelectedDay();
     }
   }
+  int daysListIndex = -1;
+  void changeDaysListIndex(int index) {
+    daysListIndex = index;
+    emit(ChangeDaysListIndex());
+  }
 }

@@ -9,16 +9,14 @@ class TaskModel extends HiveObject {
   @HiveField(1)
   String description;
   @HiveField(2)
-  final String date;
+  final int day;
   @HiveField(3)
   final String time;
 
-  TaskModel(
-      {required this.title,
-      required this.description,
-      required this.date,
-      required this.time});
-
-  // final DateTime date;
-  // final TimeOfDay time;
+  TaskModel({
+    required this.title,
+    required this.description,
+    required this.day,
+    required this.time,
+  });
 }
