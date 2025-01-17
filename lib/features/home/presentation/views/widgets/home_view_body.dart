@@ -1,3 +1,4 @@
+import 'package:day_task/core/functions/month_list.dart';
 import 'package:day_task/core/styles.dart';
 import 'package:day_task/features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:day_task/features/home/presentation/views/widgets/days_list_view.dart';
@@ -28,8 +29,8 @@ class HomeViewBody extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const Text(
-                        'November',
+                      Text(
+                        monthName,
                         style: Styles.textStyle20,
                       ),
                       const SizedBox(
