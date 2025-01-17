@@ -9,6 +9,10 @@ final class CreateTaskLoading extends CreateTaskState {}
 
 final class CreateTaskSuccess extends CreateTaskState {}
 
+final class TaskEditedTime extends CreateTaskState {}
+
+final class TaskEditedDate extends CreateTaskState {}
+
 final class CreateTaskDate extends CreateTaskState {}
 
 final class CreateTaskTime extends CreateTaskState {}

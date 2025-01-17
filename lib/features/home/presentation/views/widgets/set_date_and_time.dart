@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SetDateAndTime extends StatelessWidget {
-  const SetDateAndTime({super.key});
+  const SetDateAndTime({super.key,});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,10 @@ class SetDateAndTime extends StatelessWidget {
                 Expanded(
                   child: CustomSetDateAndTimeWidget(
                     iconData: Icons.calendar_today,
-                    date: cubit.formatDate(),
+                    date:cubit.taskEditedDate?? cubit.formatDate(),
                     maxWidth: MediaQuery.of(context).size.width / 2 - 5,
                     onPressed: () {
+                    cubit.taskEditedDatefun();
                       cubit.selectDate(context);
                     },
                   ),
@@ -30,9 +32,10 @@ class SetDateAndTime extends StatelessWidget {
                 Expanded(
                   child: CustomSetDateAndTimeWidget(
                     iconData: Icons.access_time,
-                    date: cubit.selectedTime.format(context),
+                    date:cubit.taskEditedTime?? cubit.selectedTime.format(context),
                     maxWidth: MediaQuery.of(context).size.width / 2 - 5,
                     onPressed: () {
+                      cubit.taskEditedTimefun();
                       cubit.selectTime(context);
                     },
                   ),

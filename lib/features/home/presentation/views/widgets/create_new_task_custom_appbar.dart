@@ -4,9 +4,8 @@ import 'package:flutter/widgets.dart';
 
 class CreateNewTaskCustomAppBar extends StatelessWidget {
   const CreateNewTaskCustomAppBar({
-    super.key,
-  });
-
+    super.key, required this.text,
+  });final String text;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +19,7 @@ class CreateNewTaskCustomAppBar extends StatelessWidget {
               )),
         ),
         const Spacer(),
-        Text('Create New Task',
+        Text(text,
             style:
                 Styles.textStyle20.copyWith(fontWeight: FontWeight.w500)),
         const Spacer()

@@ -1,5 +1,6 @@
 import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
+import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
 import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_custom_appbar.dart';
 import 'package:day_task/features/home/presentation/views/widgets/create_new_task_details.dart';
@@ -27,6 +28,7 @@ class _EditTaskViewBodyState extends State<EditTaskViewBody> {
   Widget build(BuildContext context) {
     titleController.text = widget.taskModel.title;
     subTitleController.text = widget.taskModel.description;
+
     return Form(
       key: formKey,
       child: Padding(
@@ -36,7 +38,9 @@ class _EditTaskViewBodyState extends State<EditTaskViewBody> {
             const SizedBox(
               height: 70,
             ),
-            const CreateNewTaskCustomAppBar(),
+            const CreateNewTaskCustomAppBar(
+              text: 'Edit the task',
+            ),
             Expanded(
               child: CustomScrollView(
                 slivers: [
@@ -99,8 +103,10 @@ class _EditTaskViewBodyState extends State<EditTaskViewBody> {
                                   taskTitle ?? widget.taskModel.title;
                               widget.taskModel.description =
                                   taskDetails ?? widget.taskModel.description;
+                              widget.taskModel.save();
                               BlocProvider.of<GetTasksCubit>(context)
                                   .getTasks();
+
                               Navigator.pop(context);
                             } else {
                               autovalidateMode = AutovalidateMode.always;

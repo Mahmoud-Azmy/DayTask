@@ -58,4 +58,16 @@ class CreateTaskCubit extends Cubit<CreateTaskState> {
   String formatDate() {
     return DateFormat('dd/MM/yyyy').format(selectedDate);
   }
+
+  String? taskEditedTime;
+  void taskEditedTimefun() {
+    taskEditedTime = null;
+    emit(TaskEditedTime());
+  }
+
+  String? taskEditedDate;
+  void taskEditedDatefun() {
+    taskEditedDate = null;
+    emit(TaskEditedDate());
+  }
 }

@@ -32,7 +32,9 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
             const SizedBox(
               height: 70,
             ),
-            const CreateNewTaskCustomAppBar(),
+            const CreateNewTaskCustomAppBar(
+              text: 'Create New Task',
+            ),
             Expanded(
               child: CustomScrollView(
                 slivers: [
@@ -92,16 +94,19 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                               BlocProvider.of<CreateTaskCubit>(context)
                                   .createNewTask(
                                 TaskModel(
-                                  title: taskTitle!,
-                                  description: taskDetails!,
-                                  day: BlocProvider.of<CreateTaskCubit>(context)
-                                      .selectedDay,
-                                  time:
-                                      BlocProvider.of<CreateTaskCubit>(context)
-                                          .selectedTime
-                                          .format(context)
-                                          .toString(),
-                                ),
+                                    title: taskTitle!,
+                                    description: taskDetails!,
+                                    day: BlocProvider.of<CreateTaskCubit>(
+                                            context)
+                                        .selectedDay,
+                                    time: BlocProvider.of<CreateTaskCubit>(
+                                            context)
+                                        .selectedTime
+                                        .format(context)
+                                        .toString(),
+                                    date: BlocProvider.of<CreateTaskCubit>(
+                                            context)
+                                        .formatDate()),
                               );
                               BlocProvider.of<GetTasksCubit>(context)
                                   .getTasks();

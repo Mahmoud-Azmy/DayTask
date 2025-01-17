@@ -12,11 +12,14 @@ class TaskModel extends HiveObject {
   final int day;
   @HiveField(3)
   final String time;
+  @HiveField(4)
+  final String date;
 
   TaskModel({
     required this.title,
     required this.description,
     required this.day,
     required this.time,
+    required this.date,
   });
 }

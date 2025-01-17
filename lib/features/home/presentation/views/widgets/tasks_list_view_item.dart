@@ -2,6 +2,7 @@ import 'package:day_task/consts.dart';
 import 'package:day_task/core/app_router.dart';
 import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/core/styles.dart';
+import 'package:day_task/features/home/presentation/manager/create_task_cubit/create_task_cubit.dart';
 import 'package:day_task/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,6 +17,10 @@ class TasksListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.editTaskView, extra: taskModel);
+        BlocProvider.of<CreateTaskCubit>(context).taskEditedDate =
+            taskModel.date.toString();
+        BlocProvider.of<CreateTaskCubit>(context).taskEditedTime =
+            taskModel.time.toString();
       },
       child: Container(
         height: 80,
