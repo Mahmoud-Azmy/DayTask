@@ -20,7 +20,7 @@ class CreateNewTaskBody extends StatefulWidget {
 class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? taskTitle, taskDetails;
+  String? taskTitle, taskDetails, taskTime;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -90,11 +90,21 @@ class _CreateNewTaskBodyState extends State<CreateNewTaskBody> {
                             if (formKey.currentState!.validate()) {
                               formKey.currentState!.save();
                               BlocProvider.of<CreateTaskCubit>(context)
-                                  .createNewTask(TaskModel(
-                                      title: taskTitle!,
-                                      description: taskDetails!,
-                                      date: DateTime.now().toString(),
-                                      time: ''));
+                                  .createNewTask(
+                                TaskModel(
+                                  title: taskTitle!,
+                                  description: taskDetails!,
+                                  date:
+                                      BlocProvider.of<CreateTaskCubit>(context)
+                                          .selectedDay
+                                          .toString(),
+                                  time:
+                                      BlocProvider.of<CreateTaskCubit>(context)
+                                          .selectedTime
+                                          .format(context)
+                                          .toString(),
+                                ),
+                              );
                               BlocProvider.of<GetTasksCubit>(context)
                                   .getTasks();
                             } else {

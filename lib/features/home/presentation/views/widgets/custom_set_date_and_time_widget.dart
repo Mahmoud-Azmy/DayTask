@@ -7,11 +7,13 @@ class CustomSetDateAndTimeWidget extends StatelessWidget {
     required this.date,
     required this.iconData,
     required this.maxWidth,
+    this.onPressed,
   });
 
   final String date;
   final IconData iconData;
   final double maxWidth;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -28,21 +30,21 @@ class CustomSetDateAndTimeWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(4), bottomLeft: Radius.circular(4)),
-              color: kSeconedColor,
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: screenWidth < 360 ? 8 : 15,
-            ),
-            height: containerHeight,
-            child: Icon(
-              iconData,
-              color: Colors.black,
-              size: iconSize,
-            ),
-          ),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(4),
+                    bottomLeft: Radius.circular(4)),
+                color: kSeconedColor,
+              ),
+              height: containerHeight,
+              child: IconButton(
+                onPressed: onPressed,
+                icon: Icon(
+                  iconData,
+                  color: Colors.black,
+                  size: iconSize,
+                ),
+              )),
           const SizedBox(width: 10),
           Expanded(
             child: FittedBox(

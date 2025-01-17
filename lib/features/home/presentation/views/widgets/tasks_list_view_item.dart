@@ -43,7 +43,7 @@ class TasksListViewItem extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       )),
                 ),
-                Text('18:30',
+                Text(taskModel.time,
                     style: Styles.textStyle12.copyWith(
                         fontWeight: FontWeight.w500, color: Colors.grey)),
               ],

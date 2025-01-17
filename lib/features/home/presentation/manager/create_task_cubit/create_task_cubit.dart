@@ -2,6 +2,7 @@ import 'package:day_task/core/models/task_model.dart';
 import 'package:day_task/features/home/data/repos/home_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 part 'create_task_state.dart';
 
@@ -18,5 +19,43 @@ class CreateTaskCubit extends Cubit<CreateTaskState> {
     }
   }
 
- 
+  DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay.now();
+  String selectedDay = '';
+
+  // Function to handle date picker
+  Future<void> selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    emit(CreateTaskDate());
+
+    if (picked != null && picked != selectedDate) {
+      selectedDate = picked;
+      selectedDay = selectedDate.day.toString();
+      emit(CreateTaskDateSuccess());
+    }
+  }
+
+  // Function to handle time picker
+  Future<void> selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+    );
+    emit(CreateTaskTime());
+
+    if (picked != null && picked != selectedTime) {
+      selectedTime = picked;
+      emit(CreateTaskTimeSuccess());
+    }
+  }
+
+  // Format date to display
+  String formatDate() {
+    return DateFormat('dd/MM/yyyy').format(selectedDate);
+  }
 }
